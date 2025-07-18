@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import data from '../public/data.json';
+import ChocolateChart from './components/ChocolateChart';
 
 export default function Home() {
   return (
-    <div>
-      <h2>Data Visualization</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+    <div className="main-container">
+      <ChocolateChart data={data} />
     </div>
   );
 }

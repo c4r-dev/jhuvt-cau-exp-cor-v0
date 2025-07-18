@@ -18,6 +18,18 @@ const submissionSchema = new mongoose.Schema({
   }
 });
 
+// Define the causalExpCorr schema
+const causalExpCorrSchema = new mongoose.Schema({
+  explanation: {
+    type: String,
+    required: true
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now
+  }
+});
+
 // Define the cleanCodeCorrRead schema for userData
 const cleanCodeCorrReadSchema = new mongoose.Schema({
   sessionId: {
@@ -47,6 +59,7 @@ const cleanCodeCorrReadSchema = new mongoose.Schema({
 // Create or get the models
 const Submission = mongoose.models.dinstimneg || mongoose.model('dinstimneg', submissionSchema);
 const CleanCodeCorrRead = mongoose.models.cleanCodeCorrRead || mongoose.model('cleanCodeCorrRead', cleanCodeCorrReadSchema);
+const CausalExpCorr = mongoose.models.causalExpCorr || mongoose.model('causalExpCorr', causalExpCorrSchema);
 
 export async function POST(request: NextRequest) {
   try {
@@ -60,6 +73,15 @@ export async function POST(request: NextRequest) {
     await dbConnect();
     
     const body = await request.json();
+    
+    // Check if this is causalExpCorr submission (for chocolate analysis)
+    if (body.explanation && !body.sessionId) {
+      const causalExpCorrSubmission = new CausalExpCorr({
+        explanation: body.explanation
+      });
+      await causalExpCorrSubmission.save();
+      return NextResponse.json({ success: true, id: causalExpCorrSubmission._id, collection: 'causalExpCorr' });
+    }
     
     // Check if this is userData submission (for cleanCodeCorrRead)
     if (body.sessionId && body.responses) {
@@ -106,14 +128,14 @@ export async function GET() {
     
     await dbConnect();
     
-    // Get the last 30 submissions from cleanCodeCorrRead, sorted by timestamp descending
-    const cleanCodeSubmissions = await CleanCodeCorrRead
+    // Get the last 15 submissions from causalExpCorr, sorted by timestamp descending
+    const causalExpCorrSubmissions = await CausalExpCorr
       .find({})
       .sort({ timestamp: -1 })
-      .limit(30)
+      .limit(15)
       .lean();
     
-    return NextResponse.json({ cleanCodeSubmissions });
+    return NextResponse.json({ causalExpCorrSubmissions });
   } catch (error) {
     console.error('Error fetching submissions:', error);
     return NextResponse.json(
