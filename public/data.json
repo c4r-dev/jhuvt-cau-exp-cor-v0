@@ -1,0 +1,102 @@
+[
+  {
+    "Country": "Switzerland",
+    "Consumption": 8.8,
+    "Nobel": 32
+  },
+  {
+    "Country": "Austria",
+    "Consumption": 8.1,
+    "Nobel": 24
+  },
+  {
+    "Country": "Ireland",
+    "Consumption": 8.2,
+    "Nobel": 20
+  },
+  {
+    "Country": "Germany",
+    "Consumption": 8.4,
+    "Nobel": 14
+  },
+  {
+    "Country": "Norway",
+    "Consumption": 9,
+    "Nobel": 17
+  },
+  {
+    "Country": "Denmark",
+    "Consumption": 8.2,
+    "Nobel": 25
+  },
+  {
+    "Country": "United Kingdom",
+    "Consumption": 8.4,
+    "Nobel": 19
+  },
+  {
+    "Country": "Sweden",
+    "Consumption": 6.6,
+    "Nobel": 31
+  },
+  {
+    "Country": "Finland",
+    "Consumption": 5.4,
+    "Nobel": 12
+  },
+  {
+    "Country": "Belgium",
+    "Consumption": 6.8,
+    "Nobel": 17
+  },
+  {
+    "Country": "Netherlands",
+    "Consumption": 7.4,
+    "Nobel": 16
+  },
+  {
+    "Country": "France",
+    "Consumption": 4.2,
+    "Nobel": 11
+  },
+  {
+    "Country": "United States",
+    "Consumption": 4.4,
+    "Nobel": 10
+  },
+  {
+    "Country": "Canada",
+    "Consumption": 4.8,
+    "Nobel": 11
+  },
+  {
+    "Country": "Australia",
+    "Consumption": 4.9,
+    "Nobel": 10
+  },
+  {
+    "Country": "Italy",
+    "Consumption": 3.7,
+    "Nobel": 9
+  },
+  {
+    "Country": "Spain",
+    "Consumption": 3.4,
+    "Nobel": 7
+  },
+  {
+    "Country": "Japan",
+    "Consumption": 2.2,
+    "Nobel": 8
+  },
+  {
+    "Country": "South Korea",
+    "Consumption": 2.3,
+    "Nobel": 2
+  },
+  {
+    "Country": "China",
+    "Consumption": 0.2,
+    "Nobel": 1
+  }
+]
