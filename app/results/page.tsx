@@ -87,10 +87,6 @@ export default function ResultsPage() {
           <div className="submissions-list">
             {submissions.map((submission, index) => (
               <div key={submission._id} className="submission-item">
-                <div className="submission-header">
-                  <span className="submission-number">#{submissions.length - index}</span>
-                  <span className="submission-date">{formatDate(submission.timestamp)}</span>
-                </div>
                 <div className="submission-content">
                   <p>{submission.explanation}</p>
                 </div>
